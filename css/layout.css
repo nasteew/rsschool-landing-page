@@ -238,11 +238,17 @@
 .footer__rss {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.footer__rss img {
+.footer__rss-mark {
+  display: block;
+  width: 28px;
   height: 28px;
-  width: auto;
+  flex-shrink: 0;
+  color: var(--color-footer-text);
 }
 
 @media (max-width: 1024px) {
