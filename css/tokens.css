@@ -11,6 +11,8 @@
   --color-gold: #b8955a;
   --color-border: #e8dbd4;
   --color-footer-bg: #2b2124;
+  --color-footer-text: #f3ebe7;
+  --color-footer-muted: #b9adb0;
   --color-overlay: rgba(28, 18, 21, 0.55);
 
   --font-serif: "Cormorant Garamond", Georgia, serif;
@@ -60,6 +62,8 @@
   --color-gold: #d4b27a;
   --color-border: #3b3235;
   --color-footer-bg: #0f0b0c;
+  --color-footer-text: #f3ebe7;
+  --color-footer-muted: #b9adb0;
   --color-overlay: rgba(0, 0, 0, 0.72);
 
   --shadow-sm: 0 0 0 1px var(--color-border);

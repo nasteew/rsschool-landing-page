@@ -1,4 +1,61 @@
-.theme-toggle {
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-accent-soft);
+}
+
+.btn__icon {
+  width: 1rem;
+  height: 1rem;
+  transition: transform var(--transition);
+}
+
+.btn:hover .btn__icon {
+  transform: translateX(4px);
+}
+
+.theme-toggle,
+.burger {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -15,11 +72,11 @@
     color var(--transition),
     background-color var(--transition),
     border-color var(--transition),
-    box-shadow var(--transition),
-    transform var(--transition);
+    box-shadow var(--transition);
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+.burger:hover {
   border-color: var(--color-accent);
   background-color: var(--color-accent-soft);
   box-shadow: var(--shadow-sm);
@@ -54,9 +111,45 @@
   transform: rotate(90deg) scale(0.6);
 }
 
+.burger {
+  display: none;
+}
+
+.burger__line {
+  position: absolute;
+  width: 18px;
+  height: 1.5px;
+  border-radius: var(--radius-pill);
+  background-color: currentColor;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.burger__line:nth-child(1) {
+  transform: translateY(-5px);
+}
+
+.burger__line:nth-child(3) {
+  transform: translateY(5px);
+}
+
+.burger[aria-expanded="true"] .burger__line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.burger[aria-expanded="true"] .burger__line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[aria-expanded="true"] .burger__line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .theme-toggle,
-  .theme-toggle__icon {
+  .theme-toggle__icon,
+  .btn,
+  .btn__icon,
+  .burger__line {
     transition: none;
   }
 }
