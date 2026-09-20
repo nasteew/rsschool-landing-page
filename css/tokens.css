@@ -1,0 +1,75 @@
+:root {
+  --color-bg: #faf6f2;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4eae4;
+  --color-text: #2b2124;
+  --color-text-muted: #6f6367;
+  --color-accent: #a85a67;
+  --color-accent-hover: #8e4653;
+  --color-on-accent: #ffffff;
+  --color-accent-soft: #f1dde0;
+  --color-gold: #b8955a;
+  --color-border: #e8dbd4;
+  --color-footer-bg: #2b2124;
+  --color-overlay: rgba(28, 18, 21, 0.55);
+
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-size-h1: clamp(2.75rem, 1.6rem + 4.8vw, 5rem);
+  --font-size-h2: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);
+  --font-size-h3: 1.5rem;
+  --font-size-body: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-eyebrow: 0.75rem;
+  --line-height-h1: 1.02;
+  --line-height-h2: 1.1;
+  --line-height-h3: 1.25;
+  --line-height-body: 1.65;
+  --letter-spacing-logo: 0.28em;
+  --letter-spacing-eyebrow: 0.18em;
+
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(43, 33, 36, 0.06);
+  --shadow-md: 0 10px 30px -12px rgba(43, 33, 36, 0.18);
+  --shadow-lg: 0 24px 60px -20px rgba(43, 33, 36, 0.28);
+
+  --transition: 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  --space-section: clamp(64px, 8vw, 120px);
+  --container-max: 1440px;
+  --header-height: 4.5rem;
+
+  --image-filter: none;
+  --color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --color-bg: #151112;
+  --color-surface: #201a1c;
+  --color-surface-alt: #2a2224;
+  --color-text: #f3ebe7;
+  --color-text-muted: #b9adb0;
+  --color-accent: #e3a0ab;
+  --color-accent-hover: #f0bac3;
+  --color-on-accent: #1a1214;
+  --color-accent-soft: #3a2a2e;
+  --color-gold: #d4b27a;
+  --color-border: #3b3235;
+  --color-footer-bg: #0f0b0c;
+  --color-overlay: rgba(0, 0, 0, 0.72);
+
+  --shadow-sm: 0 0 0 1px var(--color-border);
+  --shadow-md: 0 0 0 1px var(--color-border), 0 10px 30px -16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 0 0 1px var(--color-border), 0 24px 60px -24px rgba(227, 160, 171, 0.18);
+
+  --image-filter: brightness(0.92);
+  --color-scheme: dark;
+}
+
+html {
+  color-scheme: var(--color-scheme);
+}
