@@ -58,11 +58,11 @@ class Slider {
     }
 
     this.track.style.transform = `translateX(-${this.offset}px)`;
+    this.updateDots();
 
     if (!useMotion) {
       this.snapIfClone();
       this.isAnimating = false;
-      this.updateDots();
     }
   }
 
@@ -93,7 +93,6 @@ class Slider {
 
     this.snapIfClone();
     this.isAnimating = false;
-    this.updateDots();
   }
 
   snapIfClone() {
