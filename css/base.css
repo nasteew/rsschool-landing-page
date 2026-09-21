@@ -1,6 +1,11 @@
 html {
   scroll-behavior: smooth;
   overflow-x: clip;
+  scrollbar-gutter: stable;
+}
+
+html.no-scroll {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
