@@ -212,7 +212,7 @@
     border-color var(--transition);
 }
 
-.footer__social:hover {
+.footer a.footer__social:hover {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-on-accent);
