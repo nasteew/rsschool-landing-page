@@ -4,7 +4,8 @@ html {
   scrollbar-gutter: stable;
 }
 
-html.no-scroll {
+html.no-scroll,
+html.no-scroll body {
   overflow: hidden;
 }
 

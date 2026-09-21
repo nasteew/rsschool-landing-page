@@ -44,11 +44,16 @@ class Slider {
   }
 
   get offset() {
-    return this.slideWidth * this.index;
+    const current = this.slides[this.index];
+    if (!current) {
+      return this.slideWidth * this.index;
+    }
+
+    return current.offsetLeft;
   }
 
   syncSlideSizes() {
-    this.slideWidth = this.viewport.getBoundingClientRect().width;
+    this.slideWidth = Math.ceil(this.viewport.getBoundingClientRect().width);
     this.slides.forEach((slide) => {
       slide.style.flex = `0 0 ${this.slideWidth}px`;
       slide.style.width = `${this.slideWidth}px`;

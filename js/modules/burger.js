@@ -48,7 +48,9 @@ export const initBurger = () => {
   });
 
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && isOpen) {
+    const modal = document.querySelector("[data-modal]");
+    const modalOpen = modal && !modal.hidden;
+    if (event.key === "Escape" && isOpen && !modalOpen) {
       close();
     }
   });

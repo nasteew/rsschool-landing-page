@@ -230,6 +230,8 @@ export const initModal = () => {
     }
 
     modal.hidden = true;
+    modal.removeAttribute("aria-labelledby");
+    modal.setAttribute("aria-label", "Service details");
     unlockScroll();
     lastCard?.focus();
   };
@@ -246,9 +248,14 @@ export const initModal = () => {
 
     const form = dialog.querySelector("[data-option-groups]");
     updateSummary(form, service);
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+    });
     form.addEventListener("change", () => updateSummary(form, service));
 
     modal.hidden = false;
+    modal.setAttribute("aria-labelledby", "modal-title");
+    modal.removeAttribute("aria-label");
     lockScroll();
     dialog.querySelector(".modal__close")?.focus();
   };
@@ -272,6 +279,10 @@ export const initModal = () => {
       event.preventDefault();
       open(card);
     }
+  });
+
+  dialog.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 
   closeButtons.forEach((node) => {

@@ -168,7 +168,7 @@
   font-weight: 600;
   letter-spacing: var(--letter-spacing-eyebrow);
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-accent);
 }
 
 .footer__links,

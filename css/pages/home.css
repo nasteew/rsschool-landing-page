@@ -304,11 +304,14 @@
 
 .slider__viewport {
   overflow: hidden;
+  overflow: clip;
+  clip-path: inset(0);
   width: 100%;
 }
 
 .slider__track {
   display: flex;
+  gap: 0;
   will-change: transform;
   transition: transform var(--transition);
 }
@@ -355,7 +358,7 @@
   margin: 0 0 0.75rem;
   font-family: var(--font-serif);
   font-size: 1.75rem;
-  color: var(--color-gold);
+  color: var(--color-accent);
 }
 
 .slide__title {
