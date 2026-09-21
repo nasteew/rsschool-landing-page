@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AURA Beauty Studio — Hair, Nails, Skin & Makeup</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <script src="./js/theme-init.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/pages/home.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="logo" href="index.html">AURA</a>
+        <nav class="nav" aria-label="Main navigation">
+          <ul class="nav__list">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#work">Our work</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header__actions">
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" aria-pressed="false">
+            <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 3v1.5M12 19.5V21M4.93 4.93l1.06 1.06M18.01 18.01l1.06 1.06M3 12h1.5M19.5 12H21M4.93 19.07l1.06-1.06M18.01 5.99l1.06-1.06"></path>
+            </svg>
+            <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.5z"></path>
+            </svg>
+          </button>
+          <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+            <span class="burger__line"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="burger-menu" id="mobile-menu" data-burger-menu>
+      <nav aria-label="Mobile navigation">
+        <ul class="burger-menu__list">
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#work">Our work</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="catalog.html">Catalog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="burger-menu__cta">
+        <a class="btn btn--primary" href="index.html#contact">Book a visit</a>
+        <a class="burger-menu__contact" href="tel:+12125550142">+1 (212) 555-0142</a>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="eyebrow">Beauty & Wellness Studio</p>
+            <h1 id="hero-title">Beauty that feels like <em>you</em></h1>
+            <p class="hero__text">AURA is a boutique studio for hair, nails, skin and makeup. Expert artists, premium products and a calm space to unwind.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="index.html#contact">
+                Book a visit
+                <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+              </a>
+              <a class="btn btn--secondary" href="catalog.html">Explore services</a>
+            </div>
+            <ul class="hero__stats">
+              <li>
+                <strong>10+</strong>
+                <span>Years of craft</span>
+              </li>
+              <li>
+                <strong>12</strong>
+                <span>Expert artists</span>
+              </li>
+              <li>
+                <strong>5,000+</strong>
+                <span>Happy clients</span>
+              </li>
+            </ul>
+          </div>
+          <div class="hero__media">
+            <img class="hero__photo hero__photo--main" src="./assets/img/hero-main.webp" alt="Stylist blow-drying long chestnut hair in warm salon light" width="800" height="1000">
+            <img class="hero__photo hero__photo--round" src="./assets/img/hero-secondary.webp" alt="Client with a soft natural makeup look" width="600" height="600" loading="lazy">
+            <p class="hero__badge">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path>
+              </svg>
+              4.9 · 1,200+ reviews
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about" aria-labelledby="about-title">
+        <div class="container about__inner">
+          <div class="about__intro">
+            <p class="eyebrow">Why AURA</p>
+            <h2 id="about-title">Crafted with care, finished with <em>detail</em></h2>
+            <p class="about__text">Every visit is unhurried. We listen first, then shape hair, nails, skin and makeup with precise technique and generous aftercare, so the result feels like you on a quietly excellent day.</p>
+            <img class="about__photo" src="./assets/img/about.jpg" alt="Warm salon interior with a styling chair and soft natural light" width="1000" height="1200" loading="lazy">
+          </div>
+          <ul class="about__list">
+            <li class="advantage">
+              <span class="advantage__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 5 6v6c0 5 3.2 8.4 7 9.5 3.8-1.1 7-4.5 7-9.5V6l-7-3z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+              <h3 class="advantage__title">Certified experts</h3>
+              <p class="advantage__text">Senior artists with ongoing training in cut, colour, skin and makeup.</p>
+            </li>
+            <li class="advantage">
+              <span class="advantage__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 13c4-8 10-8 14 0"></path>
+                  <path d="M12 19a3 3 0 0 0 3-3c0-2-3-5-3-5s-3 3-3 5a3 3 0 0 0 3 3z"></path>
+                </svg>
+              </span>
+              <h3 class="advantage__title">Premium products</h3>
+              <p class="advantage__text">We work with considered professional lines chosen for hair and skin health.</p>
+            </li>
+            <li class="advantage">
+              <span class="advantage__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v3M12 18v3M4.9 6.5l2.2 2.2M16.9 15.3l2.2 2.2M3 12h3M18 12h3M4.9 17.5l2.2-2.2M16.9 8.7l2.2-2.2"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              </span>
+              <h3 class="advantage__title">Hygiene first</h3>
+              <p class="advantage__text">Tools are sterilised between guests. Surfaces stay calm, clean and ready.</p>
+            </li>
+            <li class="advantage">
+              <span class="advantage__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="4" y="5" width="16" height="16" rx="2"></rect>
+                  <path d="M8 3v4M16 3v4M4 10h16"></path>
+                </svg>
+              </span>
+              <h3 class="advantage__title">Easy booking</h3>
+              <p class="advantage__text">Call, write or visit — we keep openings clear and confirmations simple.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="work" id="work" aria-labelledby="work-title">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Our work</p>
+            <h2 id="work-title">A closer look at our <em>craft</em></h2>
+          </header>
+          <div class="slider" data-slider role="region" aria-roledescription="carousel" aria-label="Our work">
+            <div class="slider__viewport">
+              <ul class="slider__track">
+                <li class="slider__slide">
+                  <article class="slide">
+                    <img class="slide__photo" src="./assets/img/work-1.webp" alt="Soft balayage on long hair in warm light" width="1200" height="900" loading="lazy">
+                    <div class="slide__body">
+                      <p class="slide__index">01 / 05</p>
+                      <h3 class="slide__title">Soft Balayage</h3>
+                      <p class="slide__text">Hand-painted warmth that grows out gently. We blend through the mid-lengths so the colour still looks like yours, only sunnier.</p>
+                      <p class="slide__tag">Hair</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="slider__slide">
+                  <article class="slide">
+                    <img class="slide__photo" src="./assets/img/work-2.webp" alt="Glazed chrome gel nails with a mirror finish" width="1200" height="900" loading="lazy">
+                    <div class="slide__body">
+                      <p class="slide__index">02 / 05</p>
+                      <h3 class="slide__title">Glazed Chrome Nails</h3>
+                      <p class="slide__text">A refined metallic glaze over a structured gel base. Quiet shine for evenings without looking costume-like.</p>
+                      <p class="slide__tag">Nails</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="slider__slide">
+                  <article class="slide">
+                    <img class="slide__photo" src="./assets/img/work-3.webp" alt="Glowing skin after a facial treatment" width="1200" height="900" loading="lazy">
+                    <div class="slide__body">
+                      <p class="slide__index">03 / 05</p>
+                      <h3 class="slide__title">Glow Facial</h3>
+                      <p class="slide__text">A tailored cleanse, massage and mask that settles redness and leaves skin rested rather than overworked.</p>
+                      <p class="slide__tag">Face & Skin</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="slider__slide">
+                  <article class="slide">
+                    <img class="slide__photo" src="./assets/img/work-4.webp" alt="Soft bridal makeup with a luminous complexion" width="1200" height="900" loading="lazy">
+                    <div class="slide__body">
+                      <p class="slide__index">04 / 05</p>
+                      <h3 class="slide__title">Bridal Makeup</h3>
+                      <p class="slide__text">Long-wear complexion work and a light, camera-ready finish that still looks like skin in person.</p>
+                      <p class="slide__tag">Makeup</p>
+                    </div>
+                  </article>
+                </li>
+                <li class="slider__slide">
+                  <article class="slide">
+                    <img class="slide__photo" src="./assets/img/work-5.webp" alt="Sleek bob haircut with a sharp, polished finish" width="1200" height="900" loading="lazy">
+                    <div class="slide__body">
+                      <p class="slide__index">05 / 05</p>
+                      <h3 class="slide__title">Sleek Bob</h3>
+                      <p class="slide__text">A precise line, a smooth blow-dry and a cut that sits clean from the first week through the grow-out.</p>
+                      <p class="slide__tag">Hair</p>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="slider__controls">
+              <button class="slider__btn" data-slider-prev type="button" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M15 6 9 12l6 6"></path>
+                </svg>
+              </button>
+              <button class="slider__btn" data-slider-next type="button" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m9 6 6 6-6 6"></path>
+                </svg>
+              </button>
+              <div class="slider__dots">
+                <button type="button" class="slider__dot is-active" aria-label="Go to slide 1" aria-current="true"></button>
+                <button type="button" class="slider__dot" aria-label="Go to slide 2"></button>
+                <button type="button" class="slider__dot" aria-label="Go to slide 3"></button>
+                <button type="button" class="slider__dot" aria-label="Go to slide 4"></button>
+                <button type="button" class="slider__dot" aria-label="Go to slide 5"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+        <div class="container">
+          <header class="section-head section-head--center">
+            <p class="eyebrow">Kind words</p>
+            <h2 id="reviews-title">Loved by our <em>clients</em></h2>
+          </header>
+          <ul class="reviews__list">
+            <li>
+              <article class="review">
+                <p class="review__quote" aria-hidden="true">“</p>
+                <p class="review__stars" role="img" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                </p>
+                <p class="review__text">The balayage looks like I grew up in the sun. The studio is quiet, the chair time is unhurried, and I left with a cut I can actually style at home.</p>
+                <div class="review__author">
+                  <span class="review__avatar" aria-hidden="true">ER</span>
+                  <div>
+                    <h3 class="review__name">Emily R.</h3>
+                    <p class="review__service">Soft Balayage</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="review">
+                <p class="review__quote" aria-hidden="true">“</p>
+                <p class="review__stars" role="img" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                </p>
+                <p class="review__text">My gel manicure still looks new two weeks later. They took time on the shape, and the chrome is subtle instead of loud. I already booked the pedicure.</p>
+                <div class="review__author">
+                  <span class="review__avatar" aria-hidden="true">SM</span>
+                  <div>
+                    <h3 class="review__name">Sophia M.</h3>
+                    <p class="review__service">Gel Manicure</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li>
+              <article class="review">
+                <p class="review__quote" aria-hidden="true">“</p>
+                <p class="review__stars" role="img" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3.6 14.5 9l6 .6-4.5 4 1.3 5.9L12 16.8 6.7 19.5 8 13.6 3.5 9.6l6-.6L12 3.6z"></path></svg>
+                </p>
+                <p class="review__text">Bridal trial and the wedding day felt like the same face — just more rested. They photographed beautifully and never caked. I felt looked after the whole morning.</p>
+                <div class="review__author">
+                  <span class="review__avatar" aria-hidden="true">CT</span>
+                  <div>
+                    <h3 class="review__name">Chloe T.</h3>
+                    <p class="review__service">Bridal Makeup</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="container contact__inner">
+          <div class="contact__info">
+            <p class="eyebrow">Visit us</p>
+            <h2 id="contact-title">Book your <em>visit</em></h2>
+            <p class="contact__lead">Tell us what you have in mind. We will match you with an artist and a time that does not feel rushed.</p>
+            <ul class="contact__list">
+              <li>
+                <span class="contact__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.4 7-11a7 7 0 1 0-14 0c0 5.6 7 11 7 11z"></path><circle cx="12" cy="10" r="2.2"></circle></svg>
+                </span>
+                <a href="https://www.google.com/maps/search/?api=1&query=24+Rosewood+Lane+New+York+NY+10001" target="_blank" rel="noopener noreferrer">24 Rosewood Lane, New York, NY 10001</a>
+              </li>
+              <li>
+                <span class="contact__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 4.5h3l1.2 3.2-1.8 1.8a12 12 0 0 0 5.6 5.6l1.8-1.8 3.2 1.2v3A2 2 0 0 1 17.5 19 14.5 14.5 0 0 1 5 6.5a2 2 0 0 1 1.5-2z"></path></svg>
+                </span>
+                <a href="tel:+12125550142">+1 (212) 555-0142</a>
+              </li>
+              <li>
+                <span class="contact__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>
+                </span>
+                <a href="mailto:hello@aura-studio.example">hello@aura-studio.example</a>
+              </li>
+              <li>
+                <span class="contact__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>
+                </span>
+                <p>Mon–Sat 9:00–21:00, Sun 10:00–18:00</p>
+              </li>
+            </ul>
+          </div>
+          <div class="invite">
+            <h3 class="invite__title">Ready for a fresh look?</h3>
+            <p class="invite__text">Call the studio and we will find a chair for a cut, colour, nails, skin or makeup.</p>
+            <a class="btn btn--invite" href="tel:+12125550142">Call us</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <section class="footer__col">
+          <h2 class="footer__title">About</h2>
+          <p class="footer__brand">AURA</p>
+          <p class="footer__about">A boutique beauty studio for hair, nails, skin and makeup in a calm, considered space.</p>
+        </section>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="footer__title">Explore</h2>
+          <ul class="footer__links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#work">Our work</a></li>
+            <li><a href="index.html#reviews">Reviews</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <section class="footer__col">
+          <h2 class="footer__title">Contact</h2>
+          <ul class="footer__contacts">
+            <li>
+              <a href="https://www.google.com/maps/search/?api=1&query=24+Rosewood+Lane+New+York+NY+10001" target="_blank" rel="noopener noreferrer">24 Rosewood Lane, New York, NY 10001</a>
+            </li>
+            <li><a href="tel:+12125550142">+1 (212) 555-0142</a></li>
+            <li><a href="mailto:hello@aura-studio.example">hello@aura-studio.example</a></li>
+          </ul>
+        </section>
+        <section class="footer__col">
+          <h2 class="footer__title">Hours</h2>
+          <p class="footer__hours">Mon–Sat 9:00–21:00<br>Sun 10:00–18:00</p>
+          <ul class="footer__socials">
+            <li>
+              <a class="footer__social" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="AURA on Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                  <circle cx="12" cy="12" r="4"></circle>
+                  <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer__social" href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" aria-label="AURA on Pinterest">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M10.2 19.2c.6-2.4 1.1-4.8 1.1-4.8s-.6-.1-.6-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.6 2.2-.9 3.4-.3 1 .4 1.8 1.4 1.8 1.7 0 2.8-2.2 2.8-4.7 0-1.9-1.3-3.4-3.7-3.4-2.7 0-4.4 2-4.4 4.2 0 .8.2 1.4.6 1.9.1.1.1.2.1.3l-.2.9c0 .3-.2.4-.5.3-1.4-.6-2.1-2.2-2.1-4 0-3 2.5-6.6 7.5-6.6 4 0 6.6 2.9 6.6 6 0 4.1-2.3 7.1-5.6 7.1-1.1 0-2.2-.6-2.5-1.3l-.7 2.7c-.3 1-.9 2-1.4 2.7"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer__social" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="AURA on TikTok">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 4v10.2a3.8 3.8 0 1 1-3.2-3.75V13a1.8 1.8 0 1 0 1.8 1.8V4h1.4c.4 2.2 1.9 3.8 4 4.1V9.6c-1.5-.1-2.8-.8-3.8-1.9V4z"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+      <div class="container footer__bar">
+        <p>© 2026 AURA Beauty Studio</p>
+        <a href="https://github.com/nasteew" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="footer__rss" href="https://rs.school/" target="_blank" rel="noopener noreferrer">
+          <svg class="footer__rss-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="8" stroke="currentColor" stroke-width="1.5"></rect>
+            <path fill="currentColor" d="M10.2 21.6V10.4h6.1c1.9 0 3.2 1.1 3.2 2.8 0 1.2-.7 2.1-1.8 2.5 1.4.3 2.3 1.3 2.3 2.8 0 2-1.5 3.1-3.6 3.1h-6.2zm2.3-6.5h3.5c.8 0 1.3-.5 1.3-1.2s-.5-1.1-1.3-1.1h-3.5v2.3zm0 4.7h3.9c.9 0 1.5-.5 1.5-1.3s-.6-1.3-1.5-1.3h-3.9v2.6z"></path>
+          </svg>
+          RS School
+        </a>
+      </div>
+    </footer>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
