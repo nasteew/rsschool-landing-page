@@ -20,6 +20,28 @@ const formatDuration = (minutes) => {
   return `${minutes} min`;
 };
 
+const createClockIcon = () => {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("fill", "none");
+  svg.setAttribute("stroke", "currentColor");
+  svg.setAttribute("stroke-width", "1.5");
+  svg.setAttribute("stroke-linecap", "round");
+  svg.setAttribute("stroke-linejoin", "round");
+  svg.setAttribute("aria-hidden", "true");
+
+  const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  circle.setAttribute("cx", "12");
+  circle.setAttribute("cy", "12");
+  circle.setAttribute("r", "8.5");
+
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute("d", "M12 7.5V12l3 2");
+
+  svg.append(circle, path);
+  return svg;
+};
+
 const createCard = (item) => {
   const article = document.createElement("article");
   article.className = "card";
@@ -31,26 +53,46 @@ const createCard = (item) => {
   const categoryTitle =
     categories.find((category) => category.id === item.category)?.title ?? "";
 
-  article.innerHTML = `
-    <div class="card__media">
-      <span class="card__tag">${categoryTitle}</span>
-      <img class="card__img" src="${item.image}" alt="${item.imageAlt}" width="800" height="1000" loading="lazy">
-    </div>
-    <div class="card__body">
-      <h3 class="card__title">${item.title}</h3>
-      <p class="card__desc">${item.description}</p>
-      <p class="card__meta">
-        <span>from ${priceFormatter.format(item.basePrice)}</span>
-        <span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="8.5"></circle>
-            <path d="M12 7.5V12l3 2"></path>
-          </svg>
-          ${formatDuration(item.baseDuration)}
-        </span>
-      </p>
-    </div>
-  `;
+  const media = document.createElement("div");
+  media.className = "card__media";
+
+  const tag = document.createElement("span");
+  tag.className = "card__tag";
+  tag.textContent = categoryTitle;
+
+  const image = document.createElement("img");
+  image.className = "card__img";
+  image.src = item.image;
+  image.alt = item.imageAlt;
+  image.width = 800;
+  image.height = 1000;
+  image.loading = "lazy";
+
+  media.append(tag, image);
+
+  const body = document.createElement("div");
+  body.className = "card__body";
+
+  const title = document.createElement("h3");
+  title.className = "card__title";
+  title.textContent = item.title;
+
+  const description = document.createElement("p");
+  description.className = "card__desc";
+  description.textContent = item.description;
+
+  const meta = document.createElement("p");
+  meta.className = "card__meta";
+
+  const price = document.createElement("span");
+  price.textContent = `from ${priceFormatter.format(item.basePrice)}`;
+
+  const duration = document.createElement("span");
+  duration.append(createClockIcon(), document.createTextNode(formatDuration(item.baseDuration)));
+
+  meta.append(price, duration);
+  body.append(title, description, meta);
+  article.append(media, body);
 
   return article;
 };
@@ -129,11 +171,9 @@ export const initCatalog = () => {
       heading.textContent = activeCategory.title;
     }
 
-    if (grid) {
-      const activeTab = tabs.find((tab) => tab.dataset.category === categoryId);
-      if (activeTab) {
-        grid.setAttribute("aria-labelledby", activeTab.id);
-      }
+    const activeTab = tabs.find((tab) => tab.dataset.category === categoryId);
+    if (activeTab) {
+      grid.setAttribute("aria-labelledby", activeTab.id);
     }
 
     renderInitial();

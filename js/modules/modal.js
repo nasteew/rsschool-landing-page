@@ -34,7 +34,7 @@ const getSelectedItems = (form, service) => {
     }
 
     group.items.forEach((item) => {
-      const input = form.querySelector(`#${service.id}-${group.id}-${item.id}`);
+      const input = form.querySelector(`#${CSS.escape(`${service.id}-${group.id}-${item.id}`)}`);
       if (input?.checked) {
         selected.push(item);
       }
@@ -57,78 +57,130 @@ const buildChoiceLabel = (form, service) => {
       return;
     }
 
-    const count = group.items.filter((item) => {
-      const input = form.querySelector(`#${service.id}-${group.id}-${item.id}`);
+    const checkedItems = group.items.filter((item) => {
+      const input = form.querySelector(`#${CSS.escape(`${service.id}-${group.id}-${item.id}`)}`);
       return input?.checked;
-    }).length;
+    });
 
-    if (count === 1) {
-      const item = group.items.find((entry) => {
-        const input = form.querySelector(`#${service.id}-${group.id}-${entry.id}`);
-        return input?.checked;
-      });
-      if (item) {
-        parts.push(item.label);
-      }
-    } else if (count > 1) {
-      parts.push(`${count} add-ons`);
+    if (checkedItems.length === 1) {
+      parts.push(checkedItems[0].label);
+    } else if (checkedItems.length > 1) {
+      parts.push(`${checkedItems.length} add-ons`);
     }
   });
 
   return parts.join(" · ");
 };
 
-const renderGroups = (service) =>
-  service.optionGroups
-    .map((group) => {
-      const hint = group.hint ?? (group.type === "single" ? "Choose one" : "Choose any");
-      const options = group.items
-        .map((item, index) => {
-          const inputId = `${service.id}-${group.id}-${item.id}`;
-          const inputType = group.type === "single" ? "radio" : "checkbox";
-          const name = group.type === "single" ? group.id : `${group.id}[]`;
-          const checked = group.type === "single" && index === 0 ? "checked" : "";
+const createChip = (service, group, item, index) => {
+  const wrap = document.createElement("div");
+  wrap.className = "chip";
 
-          return `
-            <div class="chip">
-              <input class="visually-hidden" id="${inputId}" name="${name}" type="${inputType}" value="${item.id}" ${checked}>
-              <label class="chip__label" for="${inputId}">${item.label}</label>
-            </div>
-          `;
-        })
-        .join("");
+  const inputId = `${service.id}-${group.id}-${item.id}`;
+  const input = document.createElement("input");
+  input.className = "visually-hidden";
+  input.id = inputId;
+  input.type = group.type === "single" ? "radio" : "checkbox";
+  input.name = group.type === "single" ? group.id : `${group.id}[]`;
+  input.value = item.id;
+  input.checked = group.type === "single" && index === 0;
 
-      return `
-        <fieldset class="chip-group">
-          <legend class="chip-group__title">${group.title}</legend>
-          <p class="chip-group__hint">${hint}</p>
-          <div class="chip-group__list">${options}</div>
-        </fieldset>
-      `;
-    })
-    .join("");
+  const label = document.createElement("label");
+  label.className = "chip__label";
+  label.htmlFor = inputId;
+  label.textContent = item.label;
 
-const renderBody = (service) => {
+  wrap.append(input, label);
+  return wrap;
+};
+
+const createGroups = (service) => {
+  const fragment = document.createDocumentFragment();
+
+  service.optionGroups.forEach((group) => {
+    const fieldset = document.createElement("fieldset");
+    fieldset.className = "chip-group";
+
+    const legend = document.createElement("legend");
+    legend.className = "chip-group__title";
+    legend.textContent = group.title;
+
+    const hint = document.createElement("p");
+    hint.className = "chip-group__hint";
+    hint.textContent = group.hint ?? (group.type === "single" ? "Choose one" : "Choose any");
+
+    const list = document.createElement("div");
+    list.className = "chip-group__list";
+    group.items.forEach((item, index) => {
+      list.append(createChip(service, group, item, index));
+    });
+
+    fieldset.append(legend, hint, list);
+    fragment.append(fieldset);
+  });
+
+  return fragment;
+};
+
+const createBody = (service) => {
+  const fragment = document.createDocumentFragment();
   const categoryTitle =
     categories.find((category) => category.id === service.category)?.title ?? "";
 
-  return `
-    <img class="modal__photo" src="${service.image}" alt="${service.imageAlt}" width="800" height="1000">
-    <div class="modal__content">
-      <p class="eyebrow">${categoryTitle}</p>
-      <h2 id="modal-title">${service.title}</h2>
-      <p class="modal__details">${service.details}</p>
-      <form data-option-groups>
-        ${renderGroups(service)}
-      </form>
-      <div class="modal__summary" aria-live="polite">
-        <p class="modal__price"><output data-modal-price></output></p>
-        <p class="modal__duration" data-modal-duration></p>
-        <p class="modal__choice" data-modal-choice></p>
-        <a class="btn btn--primary" href="index.html#contact">Book this service</a>
-      </div>
-    </div>
-  `;
+  const image = document.createElement("img");
+  image.className = "modal__photo";
+  image.src = service.image;
+  image.alt = service.imageAlt;
+  image.width = 800;
+  image.height = 1000;
+
+  const content = document.createElement("div");
+  content.className = "modal__content";
+
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "eyebrow";
+  eyebrow.textContent = categoryTitle;
+
+  const title = document.createElement("h2");
+  title.id = "modal-title";
+  title.textContent = service.title;
+
+  const details = document.createElement("p");
+  details.className = "modal__details";
+  details.textContent = service.details;
+
+  const form = document.createElement("form");
+  form.dataset.optionGroups = "";
+  form.append(createGroups(service));
+
+  const summary = document.createElement("div");
+  summary.className = "modal__summary";
+  summary.setAttribute("aria-live", "polite");
+
+  const priceWrap = document.createElement("p");
+  priceWrap.className = "modal__price";
+  const priceOut = document.createElement("output");
+  priceOut.dataset.modalPrice = "";
+  priceWrap.append(priceOut);
+
+  const duration = document.createElement("p");
+  duration.className = "modal__duration";
+  duration.dataset.modalDuration = "";
+
+  const choice = document.createElement("p");
+  choice.className = "modal__choice";
+  choice.dataset.modalChoice = "";
+
+  const book = document.createElement("a");
+  book.className = "btn btn--primary";
+  book.href = "index.html#contact";
+  book.textContent = "Book this service";
+
+  summary.append(priceWrap, duration, choice, book);
+  content.append(eyebrow, title, details, form, summary);
+  fragment.append(image, content);
+
+  return fragment;
 };
 
 const updateSummary = (form, service) => {
@@ -184,12 +236,13 @@ export const initModal = () => {
 
   const open = (card) => {
     const service = services.find((item) => item.id === card.dataset.id);
-    if (!service) {
+    const body = dialog.querySelector("[data-modal-body]");
+    if (!service || !body) {
       return;
     }
 
     lastCard = card;
-    dialog.querySelector("[data-modal-body]").innerHTML = renderBody(service);
+    body.replaceChildren(createBody(service));
 
     const form = dialog.querySelector("[data-option-groups]");
     updateSummary(form, service);
