@@ -304,6 +304,7 @@
 
 .slider__viewport {
   overflow: hidden;
+  width: 100%;
 }
 
 .slider__track {
@@ -317,8 +318,10 @@
 }
 
 .slider__slide {
-  flex: 0 0 100%;
+  box-sizing: border-box;
+  flex: 0 0 auto;
   min-width: 0;
+  overflow: hidden;
 }
 
 .slide {

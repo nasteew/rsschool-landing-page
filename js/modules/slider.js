@@ -16,6 +16,8 @@ class Slider {
     this.onResize = this.onResize.bind(this);
 
     this.setupClones();
+    this.slides = [...this.track.children];
+    this.slideWidth = 0;
     this.bind();
     this.setPosition(false);
     this.updateDots();
@@ -42,7 +44,16 @@ class Slider {
   }
 
   get offset() {
-    return this.viewport.clientWidth * this.index;
+    return this.slideWidth * this.index;
+  }
+
+  syncSlideSizes() {
+    this.slideWidth = this.viewport.getBoundingClientRect().width;
+    this.slides.forEach((slide) => {
+      slide.style.flex = `0 0 ${this.slideWidth}px`;
+      slide.style.width = `${this.slideWidth}px`;
+      slide.style.maxWidth = `${this.slideWidth}px`;
+    });
   }
 
   prefersReducedMotion() {
@@ -50,6 +61,7 @@ class Slider {
   }
 
   setPosition(animate) {
+    this.syncSlideSizes();
     const useMotion = animate && !this.prefersReducedMotion();
     this.track.classList.toggle("is-instant", !useMotion);
 
