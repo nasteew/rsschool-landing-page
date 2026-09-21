@@ -49,6 +49,11 @@
   margin-top: 2.5rem;
 }
 
+.catalog__more[hidden],
+.catalog__more [hidden] {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .catalog__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
