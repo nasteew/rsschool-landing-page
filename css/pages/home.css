@@ -238,10 +238,12 @@
     box-shadow var(--transition);
 }
 
-.advantage:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .advantage:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .advantage__icon {
@@ -304,15 +306,27 @@
 
 .slider__viewport {
   overflow: hidden;
+  overflow: clip;
+  clip-path: inset(0);
+  width: 100%;
 }
 
 .slider__track {
   display: flex;
+  gap: 0;
+  will-change: transform;
+  transition: transform var(--transition);
+}
+
+.slider__track.is-instant {
+  transition: none;
 }
 
 .slider__slide {
-  flex: 0 0 100%;
+  box-sizing: border-box;
+  flex: 0 0 auto;
   min-width: 0;
+  overflow: hidden;
 }
 
 .slide {
@@ -346,7 +360,7 @@
   margin: 0 0 0.75rem;
   font-family: var(--font-serif);
   font-size: 1.75rem;
-  color: var(--color-gold);
+  color: var(--color-accent);
 }
 
 .slide__title {
@@ -396,10 +410,12 @@
   height: 22px;
 }
 
-.slider__btn:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-on-accent);
+@media (hover: hover) and (pointer: fine) {
+  .slider__btn:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
+  }
 }
 
 .slider__dots {
@@ -422,8 +438,10 @@
     background-color var(--transition);
 }
 
-.slider__dot:hover {
-  background-color: var(--color-accent);
+@media (hover: hover) and (pointer: fine) {
+  .slider__dot:hover {
+    background-color: var(--color-accent);
+  }
 }
 
 .slider__dot.is-active {
@@ -567,8 +585,10 @@
   text-decoration: none;
 }
 
-.contact__list a:hover {
-  color: var(--color-accent);
+@media (hover: hover) and (pointer: fine) {
+  .contact__list a:hover {
+    color: var(--color-accent);
+  }
 }
 
 .contact__icon {
@@ -620,9 +640,11 @@
   color: var(--color-accent);
 }
 
-.btn--invite:hover {
-  background-color: var(--color-surface-alt);
-  box-shadow: var(--shadow-md);
+@media (hover: hover) and (pointer: fine) {
+  .btn--invite:hover {
+    background-color: var(--color-surface-alt);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 @media (max-width: 1024px) {

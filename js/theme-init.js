@@ -1,4 +1,4 @@
-(() => {
+{
   const storageKey = "aura-theme";
   let theme = "light";
 
@@ -16,4 +16,4 @@
   }
 
   document.documentElement.dataset.theme = theme;
-})();
+}

@@ -40,7 +40,7 @@
               <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4 7 7 0 0 0 20 14.5z"></path>
             </svg>
           </button>
-          <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <button class="burger" type="button" data-burger aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
             <span class="burger__line"></span>
             <span class="burger__line"></span>
             <span class="burger__line"></span>
@@ -75,10 +75,10 @@
           </div>
           <div class="catalog__toolbar">
             <div class="tabs" role="tablist" aria-label="Service categories">
-              <button class="tabs__btn" id="tab-hair" type="button" role="tab" aria-selected="true" aria-controls="catalog-panel" data-category="hair">Hair</button>
-              <button class="tabs__btn" id="tab-nails" type="button" role="tab" aria-selected="false" aria-controls="catalog-panel" data-category="nails">Nails</button>
-              <button class="tabs__btn" id="tab-face" type="button" role="tab" aria-selected="false" aria-controls="catalog-panel" data-category="face">Face & Skin</button>
-              <button class="tabs__btn" id="tab-makeup" type="button" role="tab" aria-selected="false" aria-controls="catalog-panel" data-category="makeup">Makeup</button>
+              <button class="tabs__btn is-active" id="tab-hair" type="button" role="tab" aria-selected="true" aria-controls="catalog-panel" data-category="hair" tabindex="0">Hair</button>
+              <button class="tabs__btn" id="tab-nails" type="button" role="tab" aria-selected="false" aria-controls="catalog-panel" data-category="nails" tabindex="-1">Nails</button>
+              <button class="tabs__btn" id="tab-face" type="button" role="tab" aria-selected="false" aria-controls="catalog-panel" data-category="face" tabindex="-1">Face & Skin</button>
+              <button class="tabs__btn" id="tab-makeup" type="button" role="tab" aria-selected="false" aria-controls="catalog-panel" data-category="makeup" tabindex="-1">Makeup</button>
             </div>
             <p class="catalog__count" data-catalog-count>Showing 8 services</p>
           </div>
@@ -96,7 +96,7 @@
       </section>
     </main>
 
-    <div class="modal" data-modal role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal" data-modal role="dialog" aria-modal="true" aria-label="Service details" hidden>
       <div class="modal__backdrop" data-modal-close></div>
       <div class="modal__dialog">
         <button class="modal__close" type="button" data-modal-close aria-label="Close">
@@ -104,13 +104,7 @@
             <path d="M6 6l12 12M18 6 6 18"></path>
           </svg>
         </button>
-        <div class="modal__content">
-          <h2 id="modal-title">Service details</h2>
-          <div data-option-groups></div>
-          <div class="modal__summary" aria-live="polite">
-            <a class="btn btn--primary" href="index.html#contact">Book this service</a>
-          </div>
-        </div>
+        <div data-modal-body></div>
       </div>
     </div>
 
