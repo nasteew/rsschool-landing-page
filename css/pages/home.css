@@ -422,6 +422,10 @@
     background-color var(--transition);
 }
 
+.slider__dot:hover {
+  background-color: var(--color-accent);
+}
+
 .slider__dot.is-active {
   width: 28px;
   background-color: var(--color-accent);

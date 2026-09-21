@@ -269,6 +269,32 @@
   box-shadow: var(--shadow-lg);
 }
 
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.modal__close:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
 .modal__close svg {
   width: 18px;
   height: 18px;
@@ -317,12 +343,26 @@
   color: var(--color-text);
   font-weight: 600;
   cursor: pointer;
+  transition:
+    color var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.tabs__btn:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-soft);
 }
 
 .tabs__btn[aria-selected="true"] {
   background-color: var(--color-accent);
   border-color: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+.tabs__btn[aria-selected="true"]:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -332,7 +372,9 @@
   .btn__icon,
   .burger__line,
   .card,
-  .card__img {
+  .card__img,
+  .tabs__btn,
+  .modal__close {
     transition: none;
   }
 }
