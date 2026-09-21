@@ -23,8 +23,10 @@
   color: var(--color-text);
 }
 
-.logo:hover {
-  color: var(--color-accent);
+@media (hover: hover) and (pointer: fine) {
+  .logo:hover {
+    color: var(--color-accent);
+  }
 }
 
 .nav {
@@ -60,10 +62,15 @@
   transition: transform var(--transition);
 }
 
-.nav__list a:hover::after,
 .nav__list a:focus-visible::after,
 .nav__list a[aria-current="page"]::after {
   transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav__list a:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .header__actions {
@@ -115,8 +122,10 @@
   color: var(--color-text);
 }
 
-.burger-menu__list a:hover {
-  color: var(--color-accent);
+@media (hover: hover) and (pointer: fine) {
+  .burger-menu__list a:hover {
+    color: var(--color-accent);
+  }
 }
 
 .burger-menu__cta {
@@ -131,8 +140,10 @@
   text-decoration: none;
 }
 
-.burger-menu__contact:hover {
-  color: var(--color-accent);
+@media (hover: hover) and (pointer: fine) {
+  .burger-menu__contact:hover {
+    color: var(--color-accent);
+  }
 }
 
 .footer {
@@ -183,8 +194,10 @@
   transition: color var(--transition);
 }
 
-.footer a:hover {
-  color: var(--color-accent);
+@media (hover: hover) and (pointer: fine) {
+  .footer a:hover {
+    color: var(--color-accent);
+  }
 }
 
 .footer__hours {
@@ -212,10 +225,12 @@
     border-color var(--transition);
 }
 
-.footer a.footer__social:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-on-accent);
+@media (hover: hover) and (pointer: fine) {
+  .footer a.footer__social:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
+  }
 }
 
 .footer__social svg {
