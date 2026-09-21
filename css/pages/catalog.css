@@ -60,13 +60,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .modal__dialog {
+  .modal [data-modal-body] {
     grid-template-columns: 1fr;
   }
 
   .modal__photo {
     aspect-ratio: 16 / 10;
     min-height: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 }
 
