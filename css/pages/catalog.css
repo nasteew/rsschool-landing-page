@@ -28,6 +28,7 @@
   display: grid;
   gap: 1rem;
   margin: 2.5rem 0 1.75rem;
+  min-width: 0;
 }
 
 .catalog__count {
@@ -72,5 +73,18 @@
 @media (max-width: 480px) {
   .catalog__grid {
     grid-template-columns: 1fr;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .tabs__btn {
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    font-size: var(--font-size-sm);
+    text-align: center;
   }
 }
