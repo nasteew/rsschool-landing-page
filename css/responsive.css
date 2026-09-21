@@ -7,6 +7,14 @@
     gap: 0.75rem;
   }
 
+  .nav {
+    display: none;
+  }
+
+  .burger {
+    display: inline-flex;
+  }
+
   .hero__actions {
     width: 100%;
   }
