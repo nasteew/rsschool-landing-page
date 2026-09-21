@@ -308,6 +308,12 @@
 
 .slider__track {
   display: flex;
+  will-change: transform;
+  transition: transform var(--transition);
+}
+
+.slider__track.is-instant {
+  transition: none;
 }
 
 .slider__slide {
