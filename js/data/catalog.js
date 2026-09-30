@@ -1,5 +1,5 @@
 const hairLength = {
-  id: "length",
+  id: "hair-length",
   title: "Hair length",
   type: "single",
   hint: "Choose one",
@@ -75,9 +75,9 @@ const skinType = {
   hint: "Choose one",
   items: [
     { id: "normal", label: "Normal", priceDelta: 0, durationDelta: 0 },
-    { id: "dry", label: "Dry", priceDelta: 0, durationDelta: 0 },
-    { id: "oily", label: "Oily", priceDelta: 0, durationDelta: 0 },
-    { id: "sensitive", label: "Sensitive", priceDelta: 0, durationDelta: 5 },
+    { id: "dry", label: "Dry", priceDelta: 8, durationDelta: 5 },
+    { id: "oily", label: "Oily", priceDelta: 8, durationDelta: 5 },
+    { id: "sensitive", label: "Sensitive", priceDelta: 10, durationDelta: 5 },
   ],
 };
 

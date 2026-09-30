@@ -306,9 +306,8 @@
 
 .slider__viewport {
   overflow: hidden;
-  overflow: clip;
-  clip-path: inset(0);
   width: 100%;
+  isolation: isolate;
 }
 
 .slider__track {

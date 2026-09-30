@@ -136,13 +136,27 @@ export const initCatalog = () => {
     }
   };
 
-  const renderInitial = () => {
+  const renderCards = (count) => {
     const items = itemsByCategory(activeCategoryId);
-    const limit = Math.min(initialLimit(), items.length);
-    grid.replaceChildren(...items.slice(0, limit).map(createCard));
-    renderedCount = limit;
+    const visible = Math.min(count, items.length);
+    grid.replaceChildren(...items.slice(0, visible).map(createCard));
+    renderedCount = visible;
     updateCount(renderedCount);
     updateMoreButton(items.length);
+  };
+
+  const renderInitial = () => {
+    renderCards(initialLimit());
+  };
+
+  const syncToViewport = () => {
+    const items = itemsByCategory(activeCategoryId);
+    if (renderedCount >= items.length) {
+      renderCards(items.length);
+      return;
+    }
+
+    renderInitial();
   };
 
   const showRemaining = () => {
@@ -187,9 +201,7 @@ export const initCatalog = () => {
 
   moreButton?.addEventListener("click", showRemaining);
 
-  media.addEventListener("change", () => {
-    renderInitial();
-  });
+  media.addEventListener("change", syncToViewport);
 
   setActiveTab(categories[0].id);
 };

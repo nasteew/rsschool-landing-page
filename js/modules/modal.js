@@ -25,7 +25,9 @@ const getSelectedItems = (form, service) => {
 
   service.optionGroups.forEach((group) => {
     if (group.type === "single") {
-      const value = form.elements[group.id]?.value;
+      const value = form.querySelector(
+        `input[type="radio"][name="${CSS.escape(group.id)}"]:checked`,
+      )?.value;
       const item = group.items.find((entry) => entry.id === value);
       if (item) {
         selected.push(item);
@@ -49,7 +51,9 @@ const buildChoiceLabel = (form, service) => {
 
   service.optionGroups.forEach((group) => {
     if (group.type === "single") {
-      const value = form.elements[group.id]?.value;
+      const value = form.querySelector(
+        `input[type="radio"][name="${CSS.escape(group.id)}"]:checked`,
+      )?.value;
       const item = group.items.find((entry) => entry.id === value);
       if (item) {
         parts.push(item.label);

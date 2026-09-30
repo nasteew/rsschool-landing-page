@@ -278,9 +278,11 @@
 .modal__dialog {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
   width: min(880px, calc(100% - 32px));
-  max-height: 90dvh;
-  overflow: auto;
+  max-height: min(90dvh, 100%);
+  overflow: hidden;
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
@@ -290,6 +292,9 @@
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .modal__close {
@@ -337,6 +342,7 @@
 .modal__content {
   padding: 2rem 1.75rem 1.75rem;
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .modal__details {
@@ -462,6 +468,39 @@
   .tabs__btn[aria-selected="true"]:hover {
     background-color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
+  }
+}
+
+@media (max-width: 768px) {
+  .modal [data-modal-body] {
+    grid-template-columns: 1fr;
+    align-content: start;
+  }
+
+  .modal__photo {
+    width: 100%;
+    height: auto;
+    max-height: 28vh;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .modal__content {
+    padding: 1.25rem 1.15rem 1.5rem;
+  }
+
+  .modal__details {
+    margin-bottom: 1rem;
+  }
+
+  .modal__summary {
+    margin-top: 1rem;
+  }
+
+  .modal__price {
+    font-size: clamp(1.5rem, 6vw, 2.25rem);
   }
 }
 

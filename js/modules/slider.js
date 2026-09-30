@@ -10,7 +10,6 @@ class Slider {
     this.slideCount = this.originalSlides.length;
     this.index = 1;
     this.isAnimating = false;
-    this.resizeTimer = 0;
 
     this.onTransitionEnd = this.onTransitionEnd.bind(this);
     this.onResize = this.onResize.bind(this);
@@ -37,6 +36,14 @@ class Slider {
     this.nextButton?.addEventListener("click", () => this.go(1));
     this.track.addEventListener("transitionend", this.onTransitionEnd);
     window.addEventListener("resize", this.onResize);
+    this.resizeObserver = new ResizeObserver(() => {
+      if (this.isAnimating) {
+        return;
+      }
+
+      this.setPosition(false);
+    });
+    this.resizeObserver.observe(this.viewport);
 
     this.dots.forEach((dot, dotIndex) => {
       dot.addEventListener("click", () => this.goTo(dotIndex + 1));
@@ -53,11 +60,13 @@ class Slider {
   }
 
   syncSlideSizes() {
-    this.slideWidth = Math.ceil(this.viewport.getBoundingClientRect().width);
+    this.slideWidth = this.viewport.clientWidth;
     this.slides.forEach((slide) => {
+      slide.style.boxSizing = "border-box";
       slide.style.flex = `0 0 ${this.slideWidth}px`;
       slide.style.width = `${this.slideWidth}px`;
       slide.style.maxWidth = `${this.slideWidth}px`;
+      slide.style.minWidth = `${this.slideWidth}px`;
     });
   }
 
@@ -151,10 +160,7 @@ class Slider {
   }
 
   onResize() {
-    window.clearTimeout(this.resizeTimer);
-    this.resizeTimer = window.setTimeout(() => {
-      this.setPosition(false);
-    }, 50);
+    this.setPosition(false);
   }
 }
 
