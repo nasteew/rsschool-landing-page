@@ -146,6 +146,7 @@ const createBody = (service) => {
   eyebrow.textContent = categoryTitle;
 
   const title = document.createElement("h2");
+  title.className = "modal__title";
   title.id = "modal-title";
   title.textContent = service.title;
 

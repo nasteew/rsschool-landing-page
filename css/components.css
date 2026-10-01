@@ -299,9 +299,9 @@
 
 .modal__close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -342,7 +342,18 @@
 .modal__content {
   padding: 2rem 1.75rem 1.75rem;
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+.modal__title {
+  margin: 0 0 0.75rem;
+  max-width: 100%;
+  padding-right: 3.25rem;
+  overflow-wrap: break-word;
+}
+
+.modal__content .eyebrow {
+  padding-right: 3.25rem;
 }
 
 .modal__details {
@@ -480,7 +491,7 @@
   .modal__photo {
     width: 100%;
     height: auto;
-    max-height: 28vh;
+    max-height: 22vh;
     min-height: 0;
     aspect-ratio: 16 / 10;
     object-fit: cover;
@@ -488,7 +499,13 @@
   }
 
   .modal__content {
-    padding: 1.25rem 1.15rem 1.5rem;
+    padding: 1.35rem 1.15rem 1.5rem;
+  }
+
+  .modal__title {
+    font-size: clamp(1.35rem, 5vw, 1.75rem);
+    line-height: 1.2;
+    padding-right: 3.25rem;
   }
 
   .modal__details {
